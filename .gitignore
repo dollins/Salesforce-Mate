@@ -1,0 +1,10 @@
+*.xpi
+*.zip
+node_modules/
+temp/
+*.bak
+npm-debug.log
+target/
+.idea/
+yarn.lock
+*.DS_Store
