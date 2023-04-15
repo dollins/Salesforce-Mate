@@ -25,11 +25,11 @@
 }
 #insext .insext-btn {
     box-sizing: border-box;
-    width: 15px;
-    height: 33px;
+    width: 20px;
+    height: 34px;
     padding: 3px 1px 2px 0;
-    background-color: #226b86;
-    border-width: 4px;
+    background-color: #0176d3;
+    border-width: 1px;
     border-style: solid;
     border-right-style: none;
     border-color: #fff;
@@ -37,11 +37,17 @@
     border-bottom-left-radius: 5px;
     box-shadow: -2px 0 2px #a0a6ab;
     opacity: .4;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 #insext .insext-btn:hover,
 #insext.insext-active .insext-btn {
     opacity: 1;
-    width: 20px; 
+    width: 28px;
+}
+#insext .insext-btn.hidden {
+    display: none;
 }
 #insext .insext-btn img {
     box-sizing: border-box;
