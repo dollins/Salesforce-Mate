@@ -33,5 +33,26 @@
     "background": {
         "service_worker": "background.js"
     },
+    "web_accessible_resources": [
+        {
+          "extension_ids": [],
+          "matches": [
+            "https://*.salesforce.com/*",
+            "https://*.visual.force.com/*",
+            "https://*.lightning.force.com/*",
+            "https://*.cloudforce.com/*",
+            "https://*.visualforce.com/*",
+            "https://*.salesforce.mil/*",
+            "https://*.visual.force.mil/*",
+            "https://*.lightning.force.mil/*",
+            "https://*.lightning.crmforce.mil/*",
+            "https://*.cloudforce.mil/*",
+            "https://*.visualforce.mil/*"
+          ],
+          "resources": [
+            "side-menu/side-menu.html"
+          ]
+        }
+      ],
     "incognito": "split"
 }

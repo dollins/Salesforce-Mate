@@ -32,7 +32,7 @@ function initButton() {
         console.log("button is clicked");
     });
 
-    let popupSrc = chrome.runtime.getURL("popup.html");
+    let popupSrc = chrome.runtime.getURL("side-menu/side-menu.html");
     let popupEl = document.createElement("iframe");
 
     popupEl.className = "insext-popup";
