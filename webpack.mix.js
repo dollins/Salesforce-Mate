@@ -1,9 +1,11 @@
 let mix = require('laravel-mix');
 
 mix.setPublicPath('./')
-    .sass('src/scss/popup.scss', 'public/css')
-    .js('src/js/background.js', 'public/js')
-    .js('src/js/popup.js', 'public/js').vue()
+    .sass('src/components/popup/popup.scss', 'public/css')
+    .js('src/components/popup/popup.js', 'public/js').vue()
+    .js('src/scripts/background.js', 'public/js')
+    .copy('src/components/popup/popup.html', 'public')
+    .copy('src/manifests/manifest.json', 'public')
     .options({
         processCssUrls: false
     });
