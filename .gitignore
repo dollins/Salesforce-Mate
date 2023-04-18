@@ -1,10 +1,13 @@
+# Builded packages addon.xpi, addon.zip
 *.xpi
 *.zip
+addon/
+public/
+# Node modules
 node_modules/
+# Temporary folders
 temp/
-*.bak
+# Logs
 npm-debug.log
-target/
-.idea/
-yarn.lock
+# Mac specific
 *.DS_Store
