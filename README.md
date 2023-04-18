@@ -16,6 +16,8 @@ $ node build.js --remove-build-full
 - [ ] UI for Credentials. "popup" in browser app.
 - [ ] UI for multi credentials app for each single app page. Tabs a like web.
 - [ ] Setting app. Whole page.
+- [ ] Event log. In localStorage. Data Import, Data Export, Object Description, Credentials Manipulation.
+- [ ] Add SLDS SASS package.
 
 
 ----------IN PROGRESS--------------------------------------------------------------------------
