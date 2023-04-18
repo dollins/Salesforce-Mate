@@ -7,6 +7,20 @@
         "64": "icons/icon64.png",
         "128": "icons/icon128.png"
     },
+    "permissions": ["cookies"],
+    "host_permissions": [
+      "https://*.salesforce.com/*",
+      "https://*.visual.force.com/*",
+      "https://*.lightning.force.com/*",
+      "https://*.cloudforce.com/*",
+      "https://*.visualforce.com/*",
+      "https://*.salesforce.mil/*",
+      "https://*.visual.force.mil/*",
+      "https://*.lightning.force.mil/*",
+      "https://*.lightning.crmforce.mil/*",
+      "https://*.cloudforce.mil/*",
+      "https://*.visualforce.mil/*"
+    ],
     "action": {
         "default_popup": "popup.html"
     },

@@ -4,11 +4,17 @@ if (
     document.querySelector("body.sfdcBody, body.ApexCSIPage, #auraLoadingBox") ||
     location.host.endsWith("visualforce.com")
 ) {
-    // Salesforce ORG
-    initButton();
+    // We are in a Salesforce org
+    // passing in location.href resulted in wrong cookies being retrieved for .mil domains.  location.hostname works for all salesforce domains.
+    chrome.runtime.sendMessage({ message: "getSfHost", url: location.hostname }, (sfHost) => {
+        if (sfHost) {
+            console.log(JSON.stringify(sfHost));
+            initButton(sfHost);
+        }
+    });
 }
 
-function initButton() {
+function initButton(sfHost) {
     const rootEl = document.createElement("div");
     rootEl.id = "insext";
 
@@ -79,7 +85,7 @@ function initButton() {
     }
 
     function openPopup() {
-        console.log('open the popup')
+        console.log("open the popup");
         popupEl.contentWindow.postMessage({ insextUpdateRecordId: true, locationHref: location.href }, "*");
         rootEl.classList.add("insext-active");
         // These event listeners are only enabled when the popup is active to avoid interfering with Salesforce when not using the inspector
@@ -99,4 +105,9 @@ function initButton() {
             closePopup();
         }
     }
+
+    chrome.runtime.sendMessage({ message: "getSession", sfHost }, (message) => {
+        console.log("Host name: ", message.hostname);
+        console.log("Session Id: ", message.key);
+    });
 }
