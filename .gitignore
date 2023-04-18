@@ -3,6 +3,7 @@
 *.zip
 addon/
 addon-firefox/
+addon-temp/
 public/
 # Node modules
 node_modules/
