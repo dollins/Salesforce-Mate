@@ -2,13 +2,44 @@ const fs = require("fs-extra");
 const path = require("path");
 const AdmZip = require("adm-zip");
 
-function copyDirSync(srcDir, destDir, fullPath, desc) {
-    let sourcePath = srcDir;
-    let destPath = destDir;
-    if (fullPath === false) {
-        sourcePath = path.join(__dirname, srcDir);
-        destPath = path.join(__dirname, destDir);
+const args = process.argv.slice(2);
+
+if (args.includes('--remove-build')) {
+    removeBuild();
+} else if(args.includes('--rebuild')) {
+    removeBuild();
+    build();
+} else {
+    build();
+}
+
+function build() {
+    copyFolder("public", "addon", "Chrome and Edge addon");
+    copyFolder("public", "addon-firefox", "Firefox addon");
+
+    copyFile("src/manifests/manifest-chrome-edge.json", "public/manifest.json", "Public manifest");
+    copyFile("src/manifests/manifest-chrome-edge.json", "addon/manifest.json", "Chrome manifest");
+    copyFile("src/manifests/manifest-firefox.json", "addon-firefox/manifest.json", "Firefox manifest");
+
+    zipFolder("addon-firefox", "addon-firefox.xpi", "Firefox build");
+
+    deleteFolder("addon-firefox");
+}
+
+function removeBuild() {
+    deleteFolder("addon");
+    deleteFolder("addon-firefox");
+    try {
+        fs.unlinkSync(path.join(__dirname, "addon-firefox.xpi"));
+    } catch(error) {
+        console.log('Nothing to remove.')
     }
+    
+}
+
+function copyFolder(srcFolder = "", destFolder = "", desc = "", fullPath = false) {
+    const sourcePath = fullPath ? srcFolder : path.join(__dirname, srcFolder);
+    const destPath = fullPath ? destFolder : path.join(__dirname, destFolder);
 
     if (!fs.existsSync(sourcePath)) {
         throw new Error(`Source directory ${sourcePath} for ${desc} does not exist`);
@@ -26,44 +57,43 @@ function copyDirSync(srcDir, destDir, fullPath, desc) {
         const stats = fs.statSync(srcPath);
 
         if (stats.isDirectory()) {
-            copyDirSync(srcPath, destFilePath, true);
-            srcDir = "";
-            destDir = "";
+            copyFolder(srcPath, destFilePath, "", true);
         } else {
-            copyFile(srcPath, destFilePath, true);
+            copyFile(srcPath, destFilePath, "", true);
         }
     }
 }
 
-function copyFile(srcFile, destFile, fullPath, desc) {
-    let sourcePath = srcFile;
-    let destPath = destFile;
-    if (fullPath === false) {
-        sourcePath = path.join(__dirname, srcFile);
-        destPath = path.join(__dirname, destFile);
+function copyFile(srcFile = "", destFile = "", desc = "", fullPath = false) {
+    const sourcePath = fullPath ? srcFile : path.join(__dirname, srcFile);
+    const destPath = fullPath ? destFile : path.join(__dirname, destFile);
+
+    try {
+        fs.copyFileSync(sourcePath, destPath);
+    } catch (error) {
+        throw new Error(`Cannot be copied ${sourcePath} -> ${destPath} for ${desc} does not exist`);
     }
-    fs.copyFileSync(sourcePath, destPath);
-    console.log(`File ${sourcePath} -> ${destPath} is copied ${desc}.`)
 }
 
-function zipFolder(srcFolder, zipFile, desc) {
-    const srcFolderPath = path.join(__dirname, srcFolder);
-    const zipFilePath = path.join(__dirname, zipFile);
+function zipFolder(srcFolder = "", zipFile = "", desc = "", fullPath = false) {
     const zip = new AdmZip();
+    const srcFolderPath = fullPath ? srcFolder : path.join(__dirname, srcFolder);
+    const zipFilePath = fullPath ? zipFile : path.join(__dirname, zipFile);
+
     try {
         zip.addLocalFolder(srcFolderPath);
         zip.writeZip(zipFilePath);
-        console.log(`Folder ${srcFolder} is ziped. For ${desc}.`);
     } catch (error) {
-        console.error(`Zip for ${srcFolder} is not working with error: ${error}.`);
+        console.error(`Zip for ${srcFolder} is not working with error: ${error}. ${desc}.`);
     }
 }
 
-copyDirSync("public", "addon", false, "Chrome and Edge addon");
-copyDirSync("public", "addon-firefox", false, "Firefox addon");
+function deleteFolder(folderPath = "", desc = "", fullPath = false) {
+    const targetPath = fullPath ? folderPath : path.join(__dirname, folderPath);
 
-copyFile("src/manifests/manifest-chrome-edge.json", "public/manifest.json", false, "Public manifest");
-copyFile("src/manifests/manifest-chrome-edge.json", "addon/manifest.json", false, "Chrome manifest");
-copyFile("src/manifests/manifest-firefox.json", "addon-firefox/manifest.json", false, "Firefox manifest");
-
-zipFolder("addon-firefox", "addon-firefox.zip", "Firefox build");
+    try {
+        fs.removeSync(targetPath);
+    } catch (error) {
+        console.error(`Failed to delete folder: ${targetPath} with error: ${error}. ${desc}.`);
+    }
+}

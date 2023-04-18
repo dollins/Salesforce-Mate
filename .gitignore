@@ -8,6 +8,8 @@ public/
 # Node modules
 node_modules/
 package-lock.json
+# Laravel mixins
+mix-manifest.json
 # Temporary folders
 temp/
 # Logs
