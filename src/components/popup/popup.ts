@@ -1,4 +1,4 @@
-import {createApp, createElement} from 'vue';
+import {createApp} from 'vue';
 
 import Popup from './templates/Popup.vue';
 

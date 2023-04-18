@@ -2,7 +2,7 @@ let mix = require('laravel-mix');
 
 mix.setPublicPath('./')
     .sass('src/components/popup/popup.scss', 'addon/css')
-    .js('src/components/popup/popup.js', 'addon/js').vue()
+    .ts('src/components/popup/popup.ts', 'addon/js').vue()
     .copy('src/components/popup/popup.html', 'addon')
     .copy('src/scripts/background.js', 'addon/js')
     .copy('src/components/arrow/arrow.js', 'addon/arrow/arrow.js')
