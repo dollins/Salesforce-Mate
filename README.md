@@ -5,6 +5,7 @@ $ npm run dev
 $ node build.js
 $ node build.js --rebuild
 $ node build.js --remove-build
+$ node build.js --remove-build-full
 ```
 
 ### TODO:
@@ -16,4 +17,4 @@ $ node build.js --remove-build
 - [ ] UI for multi credentials app for each single app page. Tabs a like web.
 - [ ] Setting app. Whole page.
 ----------IN PROGRESS--------------------------------------------------------------------------
-- [ ] Connect the app and build with current implementation.
+- [x] Connect the app and build with current implementation.
