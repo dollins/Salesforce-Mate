@@ -2,51 +2,15 @@ const fs = require("fs-extra");
 const path = require("path");
 const AdmZip = require("adm-zip");
 
-const args = process.argv.slice(2);
+copyFolder("addon", "addon-firefox", "Firefox addon");
 
-if (args.includes('--remove-build-full')) {
-    removeBuild(true);
-} else if(args.includes('--remove-build')) {
-    removeBuild();
-    build();
-} else if(args.includes('--rebuild')) {
-    removeBuild();
-    build();
-} else {
-    build();
-}
+copyFile("src/manifests/manifest-chrome-edge.json", "addon/manifest.json", "Public manifest");
+copyFile("src/manifests/manifest-firefox.json", "addon-firefox/manifest.json", "Firefox manifest");
 
-function build() {
-    copyFolder("public", "addon", "Chrome and Edge addon");
-    copyFolder("public", "addon-firefox", "Firefox addon");
+zipFolder("addon-firefox", "addon-firefox.xpi", "Firefox build");
 
-    copyFile("src/manifests/manifest-chrome-edge.json", "public/manifest.json", "Public manifest");
-    copyFile("src/manifests/manifest-chrome-edge.json", "addon/manifest.json", "Chrome manifest");
-    copyFile("src/manifests/manifest-firefox.json", "addon-firefox/manifest.json", "Firefox manifest");
+deleteFolder("addon-firefox");
 
-    zipFolder("addon-firefox", "addon-firefox.xpi", "Firefox build");
-
-    deleteFolder("addon-firefox");
-    deleteFolder("public");
-}
-
-function removeBuild(everything = false) {
-    deleteFolder("public");
-    deleteFolder("addon");
-    deleteFolder("addon-firefox");
-
-    try {
-        fs.unlinkSync(path.join(__dirname, "addon-firefox.xpi"));
-    } catch(error) {
-        console.log('Nothing to remove.')
-    }
-
-    if (everything === true) {
-        deleteFolder("node_modules");
-        deleteFolder("mix-manifest.json");
-        deleteFolder("package-lock.json");
-    }
-}
 
 function copyFolder(srcFolder = "", destFolder = "", desc = "", fullPath = false) {
     const sourcePath = fullPath ? srcFolder : path.join(__dirname, srcFolder);

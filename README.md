@@ -1,6 +1,7 @@
 # Salesforce Mate
 
 ```
+$ npm install
 $ npm run dev
 $ node build.js
 $ node build.js --rebuild
