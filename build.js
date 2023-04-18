@@ -4,7 +4,7 @@ const AdmZip = require("adm-zip");
 
 copyFolder("addon", "addon-firefox", "Firefox addon");
 
-copyFile("src/manifests/manifest-chrome-edge.json", "addon/manifest.json", "Public manifest");
+copyFile("src/manifests/manifest-chrome-edge-opera.json", "addon/manifest.json", "Public manifest");
 copyFile("src/manifests/manifest-firefox.json", "addon-firefox/manifest.json", "Firefox manifest");
 
 zipFolder("addon-firefox", "addon-firefox.xpi", "Firefox build");
