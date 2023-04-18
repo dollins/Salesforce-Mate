@@ -5,7 +5,6 @@ mix.setPublicPath('./')
     .js('src/components/popup/popup.js', 'public/js').vue()
     .js('src/scripts/background.js', 'public/js')
     .copy('src/components/popup/popup.html', 'public')
-    .copy('src/manifests/manifest.json', 'public')
     .options({
         processCssUrls: false
     });
