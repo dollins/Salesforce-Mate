@@ -1,14 +1,14 @@
 {
     "name": "Salesforce Mate",
     "manifest_version": 3,
-    "version": "0.0.0",
+    "version": "0.0.1",
     "icons": {
         "32": "icons/icon32.png",
         "64": "icons/icon64.png",
         "128": "icons/icon128.png"
     },
     "action": {
-        "default_popup": "popup/popup.html"
+        "default_popup": "popup.html"
     },
     "content_scripts": [
         {
@@ -31,7 +31,7 @@
         }
     ],
     "background": {
-        "scripts": ["background.js"]
+        "scripts": ["js/background.js"]
     },
     "web_accessible_resources": [
         {

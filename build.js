@@ -4,8 +4,11 @@ const AdmZip = require("adm-zip");
 
 const args = process.argv.slice(2);
 
-if (args.includes('--remove-build')) {
+if (args.includes('--remove-build-full')) {
+    removeBuild(true);
+} else if(args.includes('--remove-build')) {
     removeBuild();
+    build();
 } else if(args.includes('--rebuild')) {
     removeBuild();
     build();
@@ -24,17 +27,25 @@ function build() {
     zipFolder("addon-firefox", "addon-firefox.xpi", "Firefox build");
 
     deleteFolder("addon-firefox");
+    deleteFolder("public");
 }
 
-function removeBuild() {
+function removeBuild(everything = false) {
+    deleteFolder("public");
     deleteFolder("addon");
     deleteFolder("addon-firefox");
+
     try {
         fs.unlinkSync(path.join(__dirname, "addon-firefox.xpi"));
     } catch(error) {
         console.log('Nothing to remove.')
     }
-    
+
+    if (everything === true) {
+        deleteFolder("node_modules");
+        deleteFolder("mix-manifest.json");
+        deleteFolder("package-lock.json");
+    }
 }
 
 function copyFolder(srcFolder = "", destFolder = "", desc = "", fullPath = false) {
