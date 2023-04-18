@@ -26,12 +26,6 @@ function initButton() {
     rootEl.appendChild(btn);
     document.body.appendChild(rootEl);
 
-    btn.addEventListener("click", function clickListener() {
-        btn.removeEventListener("click", clickListener);
-        loadPopup(btn);
-        console.log("button is clicked");
-    });
-
     let popupSrc = chrome.runtime.getURL("side-menu/side-menu.html");
     let popupEl = document.createElement("iframe");
 
@@ -65,6 +59,13 @@ function initButton() {
         }
     });
 
+    btn.addEventListener("click", function clickListener() {
+        btn.removeEventListener("click", clickListener);
+        loadPopup(btn);
+        // Hack to open on the load of the page.
+        openPopup();
+    });
+
     rootEl.appendChild(popupEl);
 
     function loadPopup(btn) {
@@ -78,6 +79,7 @@ function initButton() {
     }
 
     function openPopup() {
+        console.log('open the popup')
         popupEl.contentWindow.postMessage({ insextUpdateRecordId: true, locationHref: location.href }, "*");
         rootEl.classList.add("insext-active");
         // These event listeners are only enabled when the popup is active to avoid interfering with Salesforce when not using the inspector
