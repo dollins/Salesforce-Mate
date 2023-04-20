@@ -14,15 +14,36 @@ export default defineComponent({
 </script>
 <template>
     <div class="wrapper">
-        <h1 class="title">Simple Toggle Sites</h1>
-        <div class="buttons">
-            <button type="button" class="state-off" :class="{'is-active': !active}">Off</button>
-            <button type="button" class="state-on" :class="{'is-active': active}">On</button>
+        <div class="title">
+            SF Mate
         </div>
-        <div class="sites">
-            <p>List your websites below, one per line</p>
-            <textarea rows="8" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" v-model="list"></textarea>
+        <div class="organizer">
+            <div class="organizer--control">
+                <div class="organizer--control--featured">
+                    <img src="/icons/utils/favorite_white.png"/>
+                </div>
+                <div class="organizer--control--search">
+                    <input type="text" placeholder="Search here..."/>
+                </div>
+                <div class="organizer--control--new">
+                    <button>New</button>
+                </div>
+            </div>
+            <div class="organizer--tabs">
+                <div class="organizer--tabs--tab">
+                    <div class="organizer--tabs--tab--header">
+                        <div class="organizer--tabs--tab--header--state">
+
+                        </div>
+                        <div class="organizer--tabs--tab--header--count">
+                            3
+                        </div>
+                        <div class="organizer--tabs--tab--header--name">
+                            Default
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <button type="button" class="state-save">Save Site List</button>
     </div>
 </template>
