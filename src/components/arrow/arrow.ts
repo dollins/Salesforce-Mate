@@ -1,4 +1,4 @@
-import { logMessage } from '@/credentialsModule';
+import { logMessage } from '@/scripts/credentialsModule';
 
 if (
     document.querySelector("body.sfdcBody, body.ApexCSIPage, #auraLoadingBox") ||

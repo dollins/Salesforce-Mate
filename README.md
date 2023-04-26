@@ -27,11 +27,12 @@ $ node build.js --remove-build-full
 - [ ] UI for multi credentials app for each single app page. Tabs a like web.
 - [ ] Setting app. Whole page.
 - [ ] Event log. In localStorage. Data Import, Data Export, Object Description, Credentials Manipulation.
-- [ ] Add SLDS SASS package.
 - [ ] Support for Safari.
 
 ----------IN PROGRESS--------------------------------------------------------------------------
 - [ ] Credentials module. Read, Write, Update, Delete to internal storage. Dynamic links.
+- [ ] Add SLDS SASS package.
+- [ ] Add Credentials, Event and Setting types to the project as basic building stone. Basically all the data stored by the app.
 
 ----------DONE----------------------------------------------------------------------------------
 - [x] Connect the app and build with current implementation.

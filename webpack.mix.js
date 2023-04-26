@@ -3,6 +3,15 @@ const fs = require("fs-extra");
 const path = require("path");
 const AdmZip = require("adm-zip");
 
+mix.webpackConfig({
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src/'),
+    },
+    extensions: ['*', '.js', '.vue', '.ts'],
+  },
+});
+
 mix.setPublicPath("./")
     .sass("src/components/popup/popup.scss", "addon/css")
     .ts("src/components/popup/popup.ts", "addon/js")
