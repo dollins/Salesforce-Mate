@@ -1,5 +1,3 @@
-"use strict";
-
 if (
     document.querySelector("body.sfdcBody, body.ApexCSIPage, #auraLoadingBox") ||
     location.host.endsWith("visualforce.com")
@@ -16,6 +14,7 @@ if (
 
 function initButton(sfHost) {
     const rootEl = document.createElement("div");
+    const inInspector = false;
     rootEl.id = "insext";
 
     const btn = document.createElement("div");
@@ -61,7 +60,7 @@ function initButton(sfHost) {
             closePopup();
         }
         if (e.data.insextShowStdPageDetails) {
-            showStdPageDetails(e.data.insextData, e.data.insextAllFieldSetupLinks);
+            //showStdPageDetails(e.data.insextData, e.data.insextAllFieldSetupLinks);
         }
     });
 

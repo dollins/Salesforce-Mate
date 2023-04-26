@@ -8,11 +8,11 @@ mix.setPublicPath("./")
     .ts("src/components/popup/popup.ts", "addon/js")
     .vue()
     .copy("src/components/popup/popup.html", "addon")
-    .copy("src/scripts/background.js", "addon/js")
-    .copy("src/components/arrow/arrow.js", "addon/arrow/arrow.js")
-    .copy("src/components/arrow/arrow.css", "addon/arrow/arrow.css")
-    .copy("src/components/side-menu/side-menu.html", "addon/side-menu/side-menu.html")
-    .copy("src/icons/", "addon/icons/")
+    .ts("src/scripts/background.ts", "addon/js")
+    .copy("src/components/arrow/arrow.ts", "addon/arrow")
+    .copy("src/components/arrow/arrow.css", "addon/arrow")
+    .copy("src/components/side-menu/side-menu.html", "addon/side-menu")
+    .copy("src/icons", "addon/icons")
     .copy("addon", "addon-firefox")
     .copy("src/manifests/manifest-chrome-edge-opera.json", "addon/manifest.json")
     .copy("src/manifests/manifest-firefox.json", "addon-firefox/manifest.json")
@@ -24,7 +24,7 @@ mix.setPublicPath("./")
     })
     .then(() => {
         setTimeout(() => {
-            deleteFolder("addon-firefox");
+            deleteFolder("addon-firefox", "Firefox build, cleaning");
         }, 0);
     });
 

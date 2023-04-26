@@ -11,6 +11,7 @@
     "watch": "npm run local -- --watch"
   },
   "devDependencies": {
+    "@types/chrome": "^0.0.233",
     "adm-zip": "^0.5.10",
     "cross-env": "^7.0.3",
     "laravel-mix": "^6.0.49",

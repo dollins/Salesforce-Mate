@@ -5,4 +5,7 @@
         "moduleResolution": "node"
     },
     "include": ["src/**/*.ts"],
+    "types": [
+        "chrome"
+    ]
 }

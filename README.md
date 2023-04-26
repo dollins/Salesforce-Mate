@@ -33,8 +33,8 @@ $ node build.js --remove-build-full
 ----------IN PROGRESS--------------------------------------------------------------------------
 - [ ] Credentials module. Read, Write, Update, Delete to internal storage. Dynamic links.
 
-
 ----------DONE----------------------------------------------------------------------------------
 - [x] Connect the app and build with current implementation.
 - [x] Support for Opera.
 - [x] Install npm package to extend laravle mixins to create .zip file where it can be changed to .xpi and create complete build with laravel mixins. Delete the addon-firefox afterwards. Everything moved to the webpack.mix.js.
+- [x] TypeScript for whole project.
