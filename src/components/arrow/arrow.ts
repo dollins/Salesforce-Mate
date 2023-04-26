@@ -15,10 +15,10 @@ if (
 function initButton(sfHost) {
     const rootEl = document.createElement("div");
     const inInspector = false;
-    rootEl.id = "insext";
+    rootEl.id = "arrow";
 
     const btn = document.createElement("div");
-    btn.classList.add("insext-btn");
+    btn.classList.add("arrow-btn");
     btn.tabIndex = 0;
     btn.accessKey = "i";
     btn.title = "Show Salesforce details (Alt+I / Shift+Alt+I)";
@@ -34,17 +34,17 @@ function initButton(sfHost) {
     let popupSrc = chrome.runtime.getURL("side-menu/side-menu.html");
     let popupEl = document.createElement("iframe");
 
-    popupEl.className = "insext-popup";
+    popupEl.className = "arrow-popup";
     popupEl.src = popupSrc;
 
     addEventListener("message", (e) => {
         if (e.source != popupEl.contentWindow) {
             return;
         }
-        if (e.data.insextInitRequest) {
+        if (e.data.arrowInitRequest) {
             popupEl.contentWindow.postMessage(
                 {
-                    insextInitResponse: true,
+                    arrowInitResponse: true,
                     sfHost,
                     inDevConsole: !!document.querySelector("body.ApexCSIPage"),
                     inLightning: !!document.querySelector("#auraLoadingBox"),
@@ -53,14 +53,14 @@ function initButton(sfHost) {
                 "*"
             );
         }
-        if (e.data.insextLoaded) {
+        if (e.data.arrowLoaded) {
             openPopup();
         }
-        if (e.data.insextClosePopup) {
+        if (e.data.arrowClosePopup) {
             closePopup();
         }
-        if (e.data.insextShowStdPageDetails) {
-            //showStdPageDetails(e.data.insextData, e.data.insextAllFieldSetupLinks);
+        if (e.data.arrowShowStdPageDetails) {
+            //showStdPageDetails(e.data.arrowData, e.data.arrowAllFieldSetupLinks);
         }
     });
 
@@ -75,7 +75,7 @@ function initButton(sfHost) {
 
     function loadPopup(btn) {
         btn.addEventListener("click", () => {
-            if (!rootEl.classList.contains("insext-active")) {
+            if (!rootEl.classList.contains("arrow-active")) {
                 openPopup();
             } else {
                 closePopup();
@@ -85,15 +85,15 @@ function initButton(sfHost) {
 
     function openPopup() {
         console.log("open the popup");
-        popupEl.contentWindow.postMessage({ insextUpdateRecordId: true, locationHref: location.href }, "*");
-        rootEl.classList.add("insext-active");
+        popupEl.contentWindow.postMessage({ arrowUpdateRecordId: true, locationHref: location.href }, "*");
+        rootEl.classList.add("arrow-active");
         // These event listeners are only enabled when the popup is active to avoid interfering with Salesforce when not using the inspector
         addEventListener("click", outsidePopupClick);
         popupEl.focus();
     }
 
     function closePopup() {
-        rootEl.classList.remove("insext-active");
+        rootEl.classList.remove("arrow-active");
         removeEventListener("click", outsidePopupClick);
         popupEl.blur();
     }

@@ -1,4 +1,4 @@
-#insext {
+#arrow {
     z-index: 1000;
     display: block;
     position: fixed;
@@ -6,7 +6,7 @@
     right: 0;
     vertical-align: middle;
 }
-#insext .insext-popup {
+#arrow .arrow-popup {
     box-sizing: border-box;
     width: 280px;
     height: 555px;
@@ -20,10 +20,10 @@
     border: 1px solid #d8dde6;
     display: none;
 }
-#insext.insext-active .insext-popup {
+#arrow.arrow-active .arrow-popup {
     display: block;
 }
-#insext .insext-btn {
+#arrow .arrow-btn {
     box-sizing: border-box;
     width: 20px;
     height: 34px;
@@ -41,15 +41,15 @@
     align-items: center;
     justify-content: flex-start;
 }
-#insext .insext-btn:hover,
-#insext.insext-active .insext-btn {
+#arrow .arrow-btn:hover,
+#arrow.arrow-active .arrow-btn {
     opacity: 1;
     width: 28px;
 }
-#insext .insext-btn.hidden {
+#arrow .arrow-btn.hidden {
     display: none;
 }
-#insext .insext-btn img {
+#arrow .arrow-btn img {
     box-sizing: border-box;
     width: 10px;
     height: 15px;
