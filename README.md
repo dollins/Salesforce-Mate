@@ -29,7 +29,6 @@ $ node build.js --remove-build-full
 - [ ] Event log. In localStorage. Data Import, Data Export, Object Description, Credentials Manipulation.
 - [ ] Add SLDS SASS package.
 - [ ] Support for Safari.
-- [ ] Install npm package to extend laravle mixins to create .zip file where it can be changed to .xpi and create complete build with laravel mixins. Delete the addon-firefox afterwards.
 
 ----------IN PROGRESS--------------------------------------------------------------------------
 - [ ] Credentials module. Read, Write, Update, Delete to internal storage. Dynamic links.
@@ -38,3 +37,4 @@ $ node build.js --remove-build-full
 ----------DONE----------------------------------------------------------------------------------
 - [x] Connect the app and build with current implementation.
 - [x] Support for Opera.
+- [x] Install npm package to extend laravle mixins to create .zip file where it can be changed to .xpi and create complete build with laravel mixins. Delete the addon-firefox afterwards. Everything moved to the webpack.mix.js.
