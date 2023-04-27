@@ -13,10 +13,6 @@
 ```
 $ npm install
 $ npm run dev
-$ node build.js
-$ node build.js --rebuild
-$ node build.js --remove-build
-$ node build.js --remove-build-full
 ```
 
 ### TODO:
