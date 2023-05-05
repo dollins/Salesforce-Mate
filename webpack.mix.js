@@ -13,33 +13,38 @@ mix.webpackConfig({
 });
 
 mix.setPublicPath("./")
+    // Credential application
     .sass("src/components/popup/popup.scss", "addon/css")
     .ts("src/components/popup/popup.ts", "addon/js").vue()
     .copy("src/components/popup/popup.html", "addon")
-
+    // Side-Menu application
     .sass("src/components/side-menu/side-menu.scss", "addon/css")
     .ts("src/components/side-menu/side-menu.ts", "addon/js").vue()
     .copy("src/components/side-menu/side-menu.html", "addon")
-
+    // Arrow for Side-Menu
     .ts("src/components/arrow/arrow.ts", "addon/arrow")
-    .copy("src/components/arrow/arrow.css", "addon/arrow")
-
+    .sass("src/components/arrow/arrow.scss", "addon/arrow")
+    // Session Id and Salesforce init script
     .ts("src/scripts/background.ts", "addon/js")
-
+    // SLDS stylesheets https://www.lightningdesignsystem.com/
     .sass("src/styles/slds.scss", "addon/css")
-
+    // Icons
     .copy("src/icons", "addon/icons")
+    // Firefox Build
     .copy("addon", "addon-firefox")
-    .copy("src/manifests/manifest-chrome-edge-opera.json", "addon/manifest.json")
     .copy("src/manifests/manifest-firefox.json", "addon-firefox/manifest.json")
+    // Chrome - Edge - Opera Build
+    .copy("src/manifests/manifest-chrome-edge-opera.json", "addon/manifest.json")
     .options({
         processCssUrls: false
     })
     .then(() => {
+        // Firefox Build - zip
         zipFolder("addon-firefox", "addon-firefox.xpi", "Firefox build");
     })
     .then(() => {
         setTimeout(() => {
+            // Firefox Build - delete original folder
             deleteFolder("addon-firefox", "Firefox build, cleaning");
         }, 0);
     });
