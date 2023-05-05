@@ -1,8 +1,5 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
-	
-import "@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.css";
-
 
 export default defineComponent({
     name: 'Popup',

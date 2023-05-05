@@ -14,13 +14,20 @@ mix.webpackConfig({
 
 mix.setPublicPath("./")
     .sass("src/components/popup/popup.scss", "addon/css")
-    .ts("src/components/popup/popup.ts", "addon/js")
-    .vue()
+    .ts("src/components/popup/popup.ts", "addon/js").vue()
     .copy("src/components/popup/popup.html", "addon")
-    .ts("src/scripts/background.ts", "addon/js")
+
+    .sass("src/components/side-menu/side-menu.scss", "addon/css")
+    .ts("src/components/side-menu/side-menu.ts", "addon/js").vue()
+    .copy("src/components/side-menu/side-menu.html", "addon")
+
     .ts("src/components/arrow/arrow.ts", "addon/arrow")
     .copy("src/components/arrow/arrow.css", "addon/arrow")
-    .copy("src/components/side-menu/side-menu.html", "addon/side-menu")
+
+    .ts("src/scripts/background.ts", "addon/js")
+
+    .sass("src/styles/slds.scss", "addon/css")
+
     .copy("src/icons", "addon/icons")
     .copy("addon", "addon-firefox")
     .copy("src/manifests/manifest-chrome-edge-opera.json", "addon/manifest.json")
