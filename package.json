@@ -11,6 +11,7 @@
         "watch": "npm run local -- --watch"
     },
     "devDependencies": {
+        "@salesforce-ux/design-system": "^2.20.1",
         "@types/chrome": "^0.0.233",
         "adm-zip": "^0.5.10",
         "cross-env": "^7.0.3",

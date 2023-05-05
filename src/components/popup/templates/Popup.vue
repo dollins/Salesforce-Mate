@@ -1,5 +1,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
+	
+import "@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.css";
+
 
 export default defineComponent({
     name: 'Popup',
@@ -17,6 +20,7 @@ export default defineComponent({
         <div class="title">
             SF Mate
         </div>
+        <button class="slds-button slds-button_brand">Le Button Salesforce</button>
         <div class="organizer">
             <div class="organizer--control">
                 <div class="organizer--control--featured">
