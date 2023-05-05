@@ -22,8 +22,8 @@ mix.setPublicPath("./")
     .ts("src/components/side-menu/side-menu.ts", "addon/js").vue()
     .copy("src/components/side-menu/side-menu.html", "addon")
     // Arrow for Side-Menu
-    .ts("src/components/arrow/arrow.ts", "addon/arrow")
-    .sass("src/components/arrow/arrow.scss", "addon/arrow")
+    .ts("src/components/arrow/arrow.ts", "addon/js")
+    .sass("src/components/arrow/arrow.scss", "addon/css")
     // Session Id and Salesforce init script
     .ts("src/scripts/background.ts", "addon/js")
     // SLDS stylesheets https://www.lightningdesignsystem.com/
