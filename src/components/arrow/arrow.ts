@@ -33,7 +33,7 @@ function initButton(sfHost) {
     rootEl.appendChild(btn);
     document.body.appendChild(rootEl);
 
-    let popupSrc = chrome.runtime.getURL("side-menu/side-menu.html");
+    let popupSrc = chrome.runtime.getURL("side-menu.html");
     let popupEl = document.createElement("iframe");
 
     popupEl.className = "arrow-popup";
