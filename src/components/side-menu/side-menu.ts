@@ -1,7 +1,7 @@
 import {createApp} from 'vue';
 
-import SideMennu from './templates/Side-menu.vue';
+import SideMenu from './templates/Side-menu.vue';
 
-const app = createApp(SideMennu);
+const app = createApp(SideMenu);
 
 app.mount("#app");
