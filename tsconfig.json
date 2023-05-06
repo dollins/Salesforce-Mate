@@ -1,15 +1,14 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "baseUrl": "./src",
-    "paths": {
-      "@/*": ["./*"]
-    }
-  },
-  "include": ["src/**/*.ts"],
-  "types": [
-    "chrome"
-  ]
+    "compilerOptions": {
+        "target": "es5",
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "baseUrl": "./src",
+        "paths": {
+            "@/*": ["./*"]
+        },
+        "allowSyntheticDefaultImports": true
+    },
+    "include": ["src/**/*.ts"],
+    "types": ["chrome"]
 }

@@ -109,6 +109,7 @@ function initButton(sfHost) {
     }
 
     chrome.runtime.sendMessage({ message: "getSession", sfHost }, (message) => {
+        console.log(JSON.stringify(message));
         console.log("Host name: ", message.hostname);
         console.log("Session Id: ", message.key);
         console.log("LogMessage:", logMessage('runtime sendMessage'));

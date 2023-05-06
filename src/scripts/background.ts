@@ -7,6 +7,7 @@ type Message = {
 type Session = {
     key: string;
     hostname: string;
+    rawCookie: any;
 };
 
 type Url = {
@@ -85,7 +86,7 @@ chrome.runtime.onMessage.addListener((request: Message, sender, sendResponse) =>
                     sendResponse(null);
                     return;
                 }
-                let session: Session = { key: sessionCookie.value, hostname: sessionCookie.domain };
+                let session: Session = { key: sessionCookie.value, hostname: sessionCookie.domain, rawCookie: sessionCookie };
                 sendResponse(session);
             }
         );

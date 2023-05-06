@@ -1,5 +1,10 @@
 <script lang="ts">
 import { defineComponent } from "vue";
+import { generateTOTP } from '@/scripts/credentialsModule';
+
+console.log('Generated TOTP:');
+console.log(generateTOTP('JBSWY3DPEHPK3PXP'));
+
 
 export default defineComponent({
     name: "SideMenu",

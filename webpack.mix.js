@@ -8,7 +8,7 @@ mix.webpackConfig({
     alias: {
       '@': path.resolve(__dirname, 'src/'),
     },
-    extensions: ['*', '.js', '.vue', '.ts'],
+    extensions: ['.*', '.js', '.vue', '.ts'],
   },
 });
 
