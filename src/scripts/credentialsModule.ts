@@ -1,4 +1,4 @@
-import { Credentials, NewCredentials, UUID } from "@/types/credentials";
+import { Credential, NewCredential, UUID } from "@/types/credentials";
 import * as OTPAuth from "otpauth";
 import { v4 as uuidv4 } from "uuid";
 import CryptoJS from "crypto-js";
@@ -32,13 +32,13 @@ export function decrypt(ciphertext: string, salt: string, passphrase = ''): stri
     return decrypted.toString(CryptoJS.enc.Utf8);
 }
 
-export async function readAllCredentials(): Promise<Credentials[]> {
+export async function readAllCredentials(): Promise<Credential[]> {
     return new Promise((resolve, reject) => {
         chrome.storage.local.get(null, (items) => {
             if (chrome.runtime.lastError) {
                 reject(chrome.runtime.lastError);
             } else {
-                const credentials = Object.values(items) as Credentials[];
+                const credentials = Object.values(items) as Credential[];
 
                 // Decrypt the password for each credential
                 const decryptedCredentials = credentials.map((credential) => {
@@ -56,11 +56,11 @@ export async function readAllCredentials(): Promise<Credentials[]> {
     });
 }
 
-export async function createCredential(credential: NewCredentials): Promise<Credentials> {
+export async function createCredential(credential: NewCredential): Promise<Credential> {
     const id = uuidv4();
     const randomSalt = CryptoJS.lib.WordArray.random(128 / 8).toString(CryptoJS.enc.Hex);
     const { password, ...rest } = credential;
-    const newCredential: Credentials = {
+    const newCredential: Credential = {
         ...rest,
         id,
         password: encrypt(password, randomSalt),
@@ -77,9 +77,9 @@ export async function createCredential(credential: NewCredentials): Promise<Cred
     });
 }
 
-export async function updateCredential(credential: Credentials): Promise<Credentials> {
+export async function updateCredential(credential: Credential): Promise<Credential> {
     const { id, password, randomSalt, ...rest } = credential;
-    const updatedCredential: Credentials = {
+    const updatedCredential: Credential = {
         ...rest,
         id,
         password: encrypt(password, randomSalt),

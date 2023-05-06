@@ -1,10 +1,8 @@
-export * from './credentials';
 // UUID is string, however this might help to debug as only UUID is valid
 export type UUID = string;
-
 export type OrgType = 'Prod' | 'Test';
-// Only when you are creating the credentials there is not Id attribute
-export interface NewCredentials {
+// Only when you are creating the credential there is not Id attribute
+export interface NewCredential {
     username: string;
     password: string;
     TOTPSecret: string;
@@ -23,7 +21,7 @@ export interface NewCredentials {
     lastModifiedDate: Date;
 }
 // For any manipulation the UUID is used.
-export interface Credentials extends NewCredentials {
+export interface Credential extends NewCredential {
     id: UUID;
 }
 

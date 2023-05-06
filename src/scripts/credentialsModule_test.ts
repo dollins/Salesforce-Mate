@@ -1,4 +1,4 @@
-import { Credentials, NewCredentials, OrgType } from "@/types/credentials";
+import { Credential, NewCredential, OrgType } from "@/types/credentials";
 import {
     createCredential,
     readAllCredentials,
@@ -7,7 +7,7 @@ import {
     deleteAllCredentials
 } from "@/scripts/credentialsModule";
 
-const newCredential: NewCredentials = {
+const newCredential: NewCredential = {
     username: "testUsername",
     password: "testPassword",
     TOTPSecret: "testTOTPSecret",
@@ -49,7 +49,7 @@ function testReadAll() {
 function testUpdate() {
     createCredential(newCredential)
         .then((createdCredential) => {
-            const updatedCredential: Credentials = {
+            const updatedCredential: Credential = {
                 ...createdCredential,
                 username: "updatedUsername",
                 password: "updatedPassword"
