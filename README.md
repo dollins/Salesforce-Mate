@@ -15,7 +15,7 @@ $ npm install
 $ npm run dev
 ```
 
-### TODO:
+### TODO - This list will allow to focus only on development of functionality, which is ultimate goal:
 ----------TO DO-------------------------------------------------------------------------------
 - [ ] Single screen app, last part of puzzle.
 - [ ] UI for multi credentials app for each single app page. Tabs a like web.
@@ -25,7 +25,6 @@ $ npm run dev
 
 ----------IN PROGRESS--------------------------------------------------------------------------
 - [ ] Credentials module. Read, Write, Update, Delete to internal storage. Dynamic links.
-- [ ] Add Credentials, Event and Setting types to the project as basic building stone. Basically all the data stored by the app.
 - [ ] UI for Credentials. "popup" in browser app.
 
 ----------DONE----------------------------------------------------------------------------------
@@ -35,3 +34,4 @@ $ npm run dev
 - [x] TypeScript for whole project.
 - [x] Build all app together with VUE. SetUp is done.
 - [X] Add SLDS SASS package.
+- [X] Add Credentials, Event and Setting types to the project as basic building stone. Basically all the data stored by the app.
