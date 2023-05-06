@@ -96,6 +96,6 @@ export function runCredentials_test() {
     testCreate();
     testReadAll();
     testUpdate();
-    //testDeleteById();
-    //testDeleteAll();
+    testDeleteById();
+    testDeleteAll();
 }
