@@ -7,19 +7,19 @@
         "64": "icons/icon64.png",
         "128": "icons/icon128.png"
     },
-    "permissions": ["cookies"],
+    "permissions": ["cookies", "storage"],
     "host_permissions": [
-      "https://*.salesforce.com/*",
-      "https://*.visual.force.com/*",
-      "https://*.lightning.force.com/*",
-      "https://*.cloudforce.com/*",
-      "https://*.visualforce.com/*",
-      "https://*.salesforce.mil/*",
-      "https://*.visual.force.mil/*",
-      "https://*.lightning.force.mil/*",
-      "https://*.lightning.crmforce.mil/*",
-      "https://*.cloudforce.mil/*",
-      "https://*.visualforce.mil/*"
+        "https://*.salesforce.com/*",
+        "https://*.visual.force.com/*",
+        "https://*.lightning.force.com/*",
+        "https://*.cloudforce.com/*",
+        "https://*.visualforce.com/*",
+        "https://*.salesforce.mil/*",
+        "https://*.visual.force.mil/*",
+        "https://*.lightning.force.mil/*",
+        "https://*.lightning.crmforce.mil/*",
+        "https://*.cloudforce.mil/*",
+        "https://*.visualforce.mil/*"
     ],
     "action": {
         "default_popup": "popup.html"
@@ -49,24 +49,22 @@
     },
     "web_accessible_resources": [
         {
-          "extension_ids": [],
-          "matches": [
-            "https://*.salesforce.com/*",
-            "https://*.visual.force.com/*",
-            "https://*.lightning.force.com/*",
-            "https://*.cloudforce.com/*",
-            "https://*.visualforce.com/*",
-            "https://*.salesforce.mil/*",
-            "https://*.visual.force.mil/*",
-            "https://*.lightning.force.mil/*",
-            "https://*.lightning.crmforce.mil/*",
-            "https://*.cloudforce.mil/*",
-            "https://*.visualforce.mil/*"
-          ],
-          "resources": [
-            "side-menu.html"
-          ]
+            "extension_ids": [],
+            "matches": [
+                "https://*.salesforce.com/*",
+                "https://*.visual.force.com/*",
+                "https://*.lightning.force.com/*",
+                "https://*.cloudforce.com/*",
+                "https://*.visualforce.com/*",
+                "https://*.salesforce.mil/*",
+                "https://*.visual.force.mil/*",
+                "https://*.lightning.force.mil/*",
+                "https://*.lightning.crmforce.mil/*",
+                "https://*.cloudforce.mil/*",
+                "https://*.visualforce.mil/*"
+            ],
+            "resources": ["side-menu.html"]
         }
-      ],
+    ],
     "incognito": "spanning"
 }

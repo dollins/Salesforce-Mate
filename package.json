@@ -11,7 +11,7 @@
         "watch": "npm run local -- --watch"
     },
     "devDependencies": {
-        "@salesforce-ux/design-system": "^2.20.1",
+        "@salesforce-ux/design-system": "^2.21.0",
         "@types/chrome": "^0.0.235",
         "adm-zip": "^0.5.10",
         "cross-env": "^7.0.3",
@@ -22,6 +22,7 @@
         "sass-loader": "^13.2.2",
         "ts-loader": "^9.4.2",
         "typescript": "^5.0.4",
+        "uuid": "^9.0.0",
         "vue": "^3.2.47",
         "vue-loader": "^17.1.0",
         "vue-template-compiler": "^2.7.14"

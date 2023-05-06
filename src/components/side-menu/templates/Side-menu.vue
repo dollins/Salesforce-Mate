@@ -1,10 +1,13 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import { generateTOTP } from '@/scripts/credentialsModule';
+import { runCredentials_test } from "@/scripts/credentialsModule_test";
+import { generateTOTP } from "@/scripts/credentialsModule";
 
-console.log('Generated TOTP:');
-console.log(generateTOTP('JBSWY3DPEHPK3PXP'));
-
+// Generate TOTP - to access Salesforce like with password manager
+console.log("Test - Generated TOTP:");
+console.log(generateTOTP("JBSWY3DPEHPK3PXP"));
+console.log("Test - Credentials");
+console.log(runCredentials_test());
 
 export default defineComponent({
     name: "SideMenu",

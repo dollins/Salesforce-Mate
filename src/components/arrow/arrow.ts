@@ -1,5 +1,3 @@
-import { logMessage } from '@/scripts/credentialsModule';
-
 if (
     document.querySelector("body.sfdcBody, body.ApexCSIPage, #auraLoadingBox") ||
     location.host.endsWith("visualforce.com")
@@ -87,7 +85,6 @@ function initButton(sfHost) {
 
     function openPopup() {
         console.log("open the popup");
-        console.log("LogMessage:", logMessage('runtime open POP-UP'));
         popupEl.contentWindow.postMessage({ arrowUpdateRecordId: true, locationHref: location.href }, "*");
         rootEl.classList.add("arrow-active");
         // These event listeners are only enabled when the popup is active to avoid interfering with Salesforce when not using the inspector
@@ -112,6 +109,5 @@ function initButton(sfHost) {
         console.log(JSON.stringify(message));
         console.log("Host name: ", message.hostname);
         console.log("Session Id: ", message.key);
-        console.log("LogMessage:", logMessage('runtime sendMessage'));
     });
 }
