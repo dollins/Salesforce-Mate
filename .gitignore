@@ -2,6 +2,7 @@
 *.xpi
 addon/
 addon-firefox/
+addon-safari/
 # Node modules
 node_modules/
 package-lock.json

@@ -6,8 +6,8 @@
         "local": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --env=local --config=node_modules/laravel-mix/setup/webpack.config.js",
         "staging": "cross-env NODE_ENV=staging node_modules/webpack/bin/webpack.js --progress --env=staging --config=node_modules/laravel-mix/setup/webpack.config.js",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --env=production --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "dev": "rm -rf addon && rm -f addon-firefox.xpi && npm run local",
-        "prod": "rm -rf addon && rm -f addon-firefox.xpi && npm run production",
+        "dev": "rm -rf addon && rm -f addon-firefox.xpi && rm -rf addon-safari && npm run local && xcrun safari-web-extension-converter /Users/bartonicekpetr/Desktop/p/code/open_source/Salesforce-Mate/addon --app-name 'addon-safari' --swift --macos-only --force",
+        "prod": "rm -rf addon && rm -f addon-firefox.xpi && rm -rf addon-safari && npm run production",
         "watch": "npm run local -- --watch"
     },
     "devDependencies": {

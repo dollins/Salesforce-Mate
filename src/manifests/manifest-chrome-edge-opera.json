@@ -1,5 +1,6 @@
 {
     "name": "Salesforce Mate",
+    "description": "A swiss knife for a Salesforce Org.",
     "manifest_version": 3,
     "version": "0.0.1",
     "icons": {
@@ -49,7 +50,6 @@
     },
     "web_accessible_resources": [
         {
-            "extension_ids": [],
             "matches": [
                 "https://*.salesforce.com/*",
                 "https://*.visual.force.com/*",
