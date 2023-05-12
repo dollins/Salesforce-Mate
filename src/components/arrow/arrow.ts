@@ -1,7 +1,10 @@
+initButton(location.hostname);
 if (
     document.querySelector("body.sfdcBody, body.ApexCSIPage, #auraLoadingBox") ||
     location.host.endsWith("visualforce.com")
 ) {
+    //hack for safari working everywhere
+    initButton(location.hostname);
     // We are in a Salesforce org
     // passing in location.href resulted in wrong cookies being retrieved for .mil domains.  location.hostname works for all salesforce domains.
     chrome.runtime.sendMessage({ message: "getSfHost", url: location.hostname }, (sfHost) => {

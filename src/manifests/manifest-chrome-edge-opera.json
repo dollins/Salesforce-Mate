@@ -41,8 +41,8 @@
                 "https://*.visualforce.mil/*"
             ],
             "all_frames": true,
-            "css": ["css/arrow.css"],
-            "js": ["js/arrow.js"]
+            "css": ["js/arrow.css"],
+            "js": ["js/arrow.js", "js/side-menu.js", "js/popup.js"]
         }
     ],
     "background": {
