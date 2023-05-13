@@ -30,6 +30,7 @@ mix.setPublicPath("./")
     .sass("src/styles/slds.scss", "addon/css")
     // Icons
     .copy("src/icons", "addon/icons")
+    .copy("node_modules/@salesforce-ux/design-system/assets/icons/utility-sprite/svg/symbols.svg", "addon/icons")
     // Firefox Build
     .copy("addon", "addon-firefox")
     .copy("src/manifests/manifest-firefox.json", "addon-firefox/manifest.json")
