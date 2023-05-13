@@ -52,6 +52,11 @@ body {
     text-align: center;
     width: 100%;
 
+    .slds-accordion__section {
+        --slds-c-accordion-section-spacing-block-start: 4px;
+        --slds-c-accordion-section-spacing-block-end: 4px;
+    }
+
     .title {
         font-size: $title_font;
     }
