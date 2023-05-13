@@ -30,6 +30,8 @@ mix.setPublicPath("./")
     .sass("src/styles/slds.scss", "addon/css")
     // Icons
     .copy("src/icons", "addon/icons")
+    // Translation
+    .copy("src/locales", "addon/_locales")
     // Firefox Build
     .copy("addon", "addon-firefox")
     .copy("src/manifests/manifest-firefox.json", "addon-firefox/manifest.json")

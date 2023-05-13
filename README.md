@@ -21,7 +21,6 @@ $ npm run dev
 - [ ] UI for multi credentials app for each single app page. Tabs a like web.
 - [ ] Setting app. Whole page.
 - [ ] Event log. In localStorage. Data Import, Data Export, Object Description, Credentials Manipulation.
-- [ ] Support chrome i18n. - https://developer.chrome.com/docs/extensions/reference/i18n/
 - [ ] Support for the DarkMode.
 
 ----------IN PROGRESS--------------------------------------------------------------------------
@@ -37,6 +36,7 @@ $ npm run dev
 - [X] Add SLDS SASS package.
 - [X] Add Credentials, Event and Setting types to the project as basic building stone. Basically all the data stored by the app.
 - [X] Support for Safari.
+- [X] Support chrome i18n. - https://developer.chrome.com/docs/extensions/reference/i18n/
 
 
 

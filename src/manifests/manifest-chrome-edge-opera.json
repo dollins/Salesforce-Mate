@@ -1,6 +1,7 @@
 {
-    "name": "Salesforce Mate",
-    "description": "A swiss knife for a Salesforce Org.",
+    "name": "__MSG_extensionName__",
+    "description": "__MSG_extensionDescription__",
+    "default_locale": "en",
     "manifest_version": 3,
     "version": "0.0.1",
     "icons": {

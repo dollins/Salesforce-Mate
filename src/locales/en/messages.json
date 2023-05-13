@@ -1,0 +1,10 @@
+{
+    "extensionName": {
+      "message": "Salesforce Mate",
+      "description": "Name of the extension."
+    },
+    "extensionDescription": {
+        "message": "A swiss knife for a Salesforce Org.",
+        "description": "Description of the extension."
+      }
+  }
