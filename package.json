@@ -12,6 +12,7 @@
         "watch": "npm run local -- --watch"
     },
     "devDependencies": {
+        "@babel/core": "^7.22.5",
         "@babel/preset-react": "^7.22.5",
         "@salesforce-ux/design-system": "^2.21.3",
         "@types/chrome": "^0.0.239",
