@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import PopupCmp from './popupComponent';
+import { createRoot } from 'react-dom/client';
 
 const container = document.getElementById('app');
 
-ReactDOM.render(<PopupCmp />, container);
+const root = createRoot(document.getElementById('app'));
+root.render(<h1>Hello, world</h1>);
