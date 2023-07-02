@@ -10,6 +10,10 @@ body * {
     font-family: "Salesforce Sans", sans-serif;
 }
 
+body {
+    background-color: white;
+}
+
 @mixin flexCenter {
     display: flex;
     align-items: center;
@@ -51,6 +55,15 @@ body {
 .wrapper {
     text-align: center;
     width: 100%;
+
+    .slds-accordion__section {
+        --slds-c-accordion-section-spacing-block-start: 4px;
+        --slds-c-accordion-section-spacing-block-end: 4px;
+
+        .slds-accordion__summary-heading {
+            --slds-c-accordion-heading-font-size: 13px;
+        }
+    }
 
     .title {
         font-size: $title_font;
@@ -101,9 +114,6 @@ body {
                 .organizer--tabs--tab--header {
                     @include flexLeft();
 
-                    .organizer--tabs--tab--header--state {
-                        
-                    }
 
                     .organizer--tabs--tab--header--count {
                         color: white;
