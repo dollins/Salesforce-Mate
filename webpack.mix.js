@@ -5,31 +5,43 @@ const AdmZip = require("adm-zip");
 
 mix.webpackConfig({
     resolve: {
-      alias: {
-        '@': path.resolve(__dirname, 'src/'),
-      },
-      extensions: ['.*', '.js', '.jsx', '.vue', '.ts', '.tsx'],
+        alias: {
+            "@": path.resolve(__dirname, "src/")
+        },
+        extensions: [".*", ".js", ".jsx", ".vue", ".ts", ".tsx"]
     },
     module: {
-      rules: [
-        {
-          test: /\.tsx?$/,
-          loader: 'ts-loader',
-          options: { appendTsSuffixTo: [/\.vue$/] },
-          exclude: /node_modules/,
-        },
-      ],
-    },
-  });
+        rules: [
+            {
+                test: /\.tsx?$/,
+                loader: "ts-loader",
+                options: { appendTsSuffixTo: [/\.vue$/] },
+                exclude: /node_modules/
+            },
+            {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: ["@babel/preset-react"]
+                    }
+                }
+            }
+        ]
+    }
+});
 
 mix.setPublicPath("./")
     // Credential application
     .sass("src/components/popup/popup.scss", "addon/css")
-    .js("src/components/popup/popup.tsx", "addon/js").react()
+    .js("src/components/popup/popup.tsx", "addon/js")
+    .react()
     .copy("src/components/popup/popup.html", "addon")
     // Side-Menu application
     .sass("src/components/side-menu/side-menu.scss", "addon/css")
-    .ts("src/components/side-menu/side-menu.ts", "addon/js").vue()
+    .ts("src/components/side-menu/side-menu.ts", "addon/js")
+    .vue()
     .copy("src/components/side-menu/side-menu.html", "addon")
     // Arrow for Side-Menu
     .ts("src/components/arrow/arrow.ts", "addon/js")
@@ -61,7 +73,6 @@ mix.setPublicPath("./")
             deleteFolder("addon-firefox", "Firefox build, cleaning");
         }, 0);
     });
-
 
 function zipFolder(srcFolder = "", zipFile = "", desc = "", fullPath = false) {
     const zip = new AdmZip();

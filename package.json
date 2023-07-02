@@ -12,13 +12,13 @@
         "watch": "npm run local -- --watch"
     },
     "devDependencies": {
-        "@babel/core": "^7.22.5",
         "@babel/preset-react": "^7.22.5",
         "@salesforce-ux/design-system": "^2.21.3",
         "@salesforce/design-system-react": "^0.10.54",
         "@types/chrome": "^0.0.239",
         "@types/react": "^18.2.14",
         "@types/react-dom": "^18.2.6",
+        "@vue/cli-plugin-babel": "^5.0.8",
         "adm-zip": "^0.5.10",
         "cross-env": "^7.0.3",
         "crypto-js": "^4.1.1",
