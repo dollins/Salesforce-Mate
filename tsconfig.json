@@ -10,6 +10,6 @@
         },
         "allowSyntheticDefaultImports": true
     },
-    "include": ["src/**/*.ts", "src/components/popup/popup.tsx"],
+    "include": ["src/**/*.ts", "src/**/*.tsx"],
     "types": ["chrome"]
 }
