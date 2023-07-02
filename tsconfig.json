@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "jsx": "react",
         "target": "es5",
         "module": "ESNext",
         "moduleResolution": "node",
@@ -9,6 +10,6 @@
         },
         "allowSyntheticDefaultImports": true
     },
-    "include": ["src/**/*.ts"],
+    "include": ["src/**/*.ts", "src/components/popup/popup.tsx", "src/components/popup/popupComponent.tsx"],
     "types": ["chrome"]
 }

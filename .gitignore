@@ -1,16 +1,25 @@
-# Builded packages addon.xpi
+# Build
 *.xpi
 addon/
 addon-firefox/
 addon-safari/
-# Node modules
+
+# Node Modules
 node_modules/
+
+# NPM
 package-lock.json
+npm-debug.log
+
+# Yarn
+yarn.lock
+yarn-error.log
+
 # Laravel mixins
 mix-manifest.json
+
 # Temporary folders
 temp/
-# Logs
-npm-debug.log
+
 # Mac specific
 *.DS_Store

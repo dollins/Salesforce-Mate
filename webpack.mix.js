@@ -4,18 +4,28 @@ const path = require("path");
 const AdmZip = require("adm-zip");
 
 mix.webpackConfig({
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, 'src/'),
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, 'src/'),
+      },
+      extensions: ['.*', '.js', '.jsx', '.vue', '.ts', '.tsx'],
     },
-    extensions: ['.*', '.js', '.vue', '.ts'],
-  },
-});
+    module: {
+      rules: [
+        {
+          test: /\.tsx?$/,
+          loader: 'ts-loader',
+          options: { appendTsSuffixTo: [/\.vue$/] },
+          exclude: /node_modules/,
+        },
+      ],
+    },
+  });
 
 mix.setPublicPath("./")
     // Credential application
     .sass("src/components/popup/popup.scss", "addon/css")
-    .ts("src/components/popup/popup.ts", "addon/js").vue()
+    .js("src/components/popup/popup.tsx", "addon/js").react()
     .copy("src/components/popup/popup.html", "addon")
     // Side-Menu application
     .sass("src/components/side-menu/side-menu.scss", "addon/css")
