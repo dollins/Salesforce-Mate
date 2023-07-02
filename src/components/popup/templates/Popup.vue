@@ -9,6 +9,15 @@ export default defineComponent({
             active: true,
             list: "example.com"
         };
+    },
+    methods: {
+        togglePopup(event) {
+            if (event.currentTarget.closest('section').classList.includes('slds-is-open')) {
+                event.currentTarget.closest('section').classList.remove('slds-is-open');
+            } else {
+                event.currentTarget.closest('section').classList.add('slds-is-open');
+            }
+        }
     }
 });
 </script>
@@ -16,6 +25,19 @@ export default defineComponent({
     <div class="wrapper">
         <div class="title">SF Mate</div>
         <div class="accordeon">
+            <div class="organizer">
+            <div class="organizer--control">
+                <div class="organizer--control--featured">
+                    <img src="/icons/utils/favorite_white.png" />
+                </div>
+                <div class="organizer--control--search">
+                    <input type="text" placeholder="Search here..." />
+                </div>
+                <div class="organizer--control--new">
+                    <button>New</button>
+                </div>
+            </div>
+        </div>
             <ul class="slds-accordion">
                 <li class="slds-accordion__list-item">
                     <section class="slds-accordion__section">
@@ -26,6 +48,7 @@ export default defineComponent({
                                     aria-controls="referenceId-45"
                                     aria-expanded="false"
                                     title="Accordion summary"
+                                    @click="togglePopup"
                                 >
                                     <svg
                                         class="slds-accordion__summary-action-icon slds-button__icon slds-button__icon_left"
@@ -35,6 +58,9 @@ export default defineComponent({
                                     </svg>
                                     <span class="slds-accordion__summary-content">Accordion summary</span>
                                 </button>
+                                <span class="slds-badge slds-badge_lightest">
+                                    2
+                                </span>
                             </h2>
                         </div>
                         <div class="slds-accordion__content" id="referenceId-45">Accordion details - A</div>
@@ -58,6 +84,9 @@ export default defineComponent({
                                     </svg>
                                     <span class="slds-accordion__summary-content">Accordion summary</span>
                                 </button>
+                                <span class="slds-badge slds-badge_lightest">
+                                    3
+                                </span>
                             </h2>
                         </div>
                         <div hidden="" class="slds-accordion__content" id="referenceId-46">Accordion details - B</div>
@@ -81,34 +110,15 @@ export default defineComponent({
                                     </svg>
                                     <span class="slds-accordion__summary-content">Accordion summary</span>
                                 </button>
+                                <span class="slds-badge slds-badge_lightest">
+                                    5
+                                </span>
                             </h2>
                         </div>
                         <div hidden="" class="slds-accordion__content" id="referenceId-47">Accordion details - C</div>
                     </section>
                 </li>
             </ul>
-        </div>
-        <div class="organizer">
-            <div class="organizer--control">
-                <div class="organizer--control--featured">
-                    <img src="/icons/utils/favorite_white.png" />
-                </div>
-                <div class="organizer--control--search">
-                    <input type="text" placeholder="Search here..." />
-                </div>
-                <div class="organizer--control--new">
-                    <button>New</button>
-                </div>
-            </div>
-            <div class="organizer--tabs">
-                <div class="organizer--tabs--tab">
-                    <div class="organizer--tabs--tab--header">
-                        <div class="organizer--tabs--tab--header--state"></div>
-                        <div class="organizer--tabs--tab--header--count">3</div>
-                        <div class="organizer--tabs--tab--header--name">Default</div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </template>
